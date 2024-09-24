@@ -6,17 +6,31 @@
     <title>Ejemplo de Página Compleja</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
     <header>
-        <div class="banner">
-            <img src="media/logo.png">
+        <div class="header-top">
+            <div class="header-left">
+                <img src="media/logo.png" alt="Logo" class="header-logo">
+            </div>
+            <div class="header-center">
+                <h1>INSTITUTO EUMENIO ANCOCHEA</h1>
+                <div class="header-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="header-right">
+                <button>Iniciar sesión</button>
+                <button>Registrarse</button>
+            </div>
         </div>
-        <div class="botones">
-            <button>Iniciar sesión</button>
-            <button>Registrarse</button>
-        </div>
+
+        <!-- Menú de navegación -->
         <nav class="nav-menu">
             <ul class="nav-left">
                 <li><a href="#"><i class="fas fa-home"></i></a></li>
@@ -31,7 +45,6 @@
     </header>
     <div class="container">
         <aside class="sidebar">
-            <h2>Menú Lateral</h2>
             <ul>
                 <li><a href="#section1">Inicio</a></li>
                 <li><a href="#section2">Calendario</a></li>
@@ -63,25 +76,35 @@
         <main>
 
             <section id="home">
-                <h2>Inicio</h2>
-                <p>Bienvenido a nuestra página principal. Aquí te damos una visión general de lo que ofrecemos.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna libero. Donec imperdiet vestibulum augue non ultricies.</p>
+                <h2>¡ BIENVENIDOS !</h2>
+                <p>
+                    Bienvenidos al Instituto de Innovación y Tecnología, un centro educativo comprometido con la formación de profesionales del futuro. 
+                    Desde nuestros inicios, nos hemos enfocado en ofrecer una educación de calidad, adaptada a las demandas del mundo moderno. 
+                    Nuestro objetivo es formar a jóvenes con conocimientos sólidos, habilidades prácticas y valores éticos, preparados para enfrentar 
+                    los retos de un entorno cada vez más globalizado y digital.</p>
+                <p>
+                    Estamos orgullosos de nuestra comunidad, en la que estudiantes, profesores y profesionales trabajan juntos para construir un ambiente 
+                    colaborativo y de constante evolución. En el Instituto de Innovación y Tecnología, tu educación no solo será una etapa, sino la base 
+                    sólida para una carrera exitosa y un futuro prometedor. ¡Te invitamos a formar parte de nuestra familia y a crecer junto a nosotros!
+                </p>
             </section>
 
             <!--Asignaturas-->
             <section id="asignaturas">
-                <h2>Asignaturas</h2>
+                <h2>ASIGNATURAS DEL CURSO</h2>
                 <div class="gallery">
                     <a href="#"><img src="media/bbdd.png" alt="Base de Datos">BASE DE DATOS</a>
                     <a href="#"><img src="media/ssii.png" alt="Sistemas Informáticos">SISTEMAS INFORMÁTICOS</a>
                     <a href="#"><img src="media/programacion.png" alt="Programación">PROGRAMACIÓN</a>
                     <a href="#"><img src="media/lm.png" alt="Lenguaje de Marcas">LENGUAJE DE MARCAS</a>
+                    <a href="#"><img src="media/ed.png" alt="Entornos de Desarrollo">ENTORNOS DE DESARROLLO</a>
+                    <a href="#"><img src="media/fol.png" alt="Formación y Orientación Laboral">FORMACIÓN Y ORIENTACIÓN LABORAL</a>
                 </div>
             </section>
 
             <!-- Horarios -->
              <section id="calendario">
-                <h2>Calendario</h2>
+                <h2>CALENDARIO ESCOLAR</h2>
                 <table class="tabla-horarios">
                     <thead>
                         <tr>
@@ -97,7 +120,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="table-cell">8:30 - 9:25</td>
+                            <td class="table-cell">8:30</td>
                             <td class="table-cell">Programación</td>
                             <td class="table-cell">Base de Datos</td>
                             <td class="table-cell">Entornos de Desarrollo</td>
@@ -107,7 +130,7 @@
                             <td class="table-cell">-</td>                        
                         </tr>
                         <tr>
-                            <td class="table-cell">9:25 - 10:20</td>
+                            <td class="table-cell">9:25</td>
                             <td class="table-cell">Programación</td>
                             <td class="table-cell">Base de Datos</td>
                             <td class="table-cell">Entornos de Desarrollo</td>
@@ -117,7 +140,7 @@
                             <td class="table-cell">-</td>
                         </tr>
                         <tr>
-                            <td class="table-cell">10:20 - 11:15</td>
+                            <td class="table-cell">10:20</td>
                             <td class="table-cell">Programación</td>
                             <td class="table-cell">Base de Datos</td>
                             <td class="table-cell">Entornos de Desarrollo</td>
@@ -128,11 +151,11 @@
                         </tr>
                         <!-- Fila de las 11:15 ocupando toda la columna -->
                         <tr>
-                            <td class="table-cell">11:15 - 11:45</td>
+                            <td class="table-cell">11:15</td>
                             <td class="table-cell" colspan="7">R  E  C  R  E  O</td>
                         </tr>
                         <tr>
-                            <td class="table-cell">11:45 - 12:40</td>
+                            <td class="table-cell">11:45</td>
                             <td class="table-cell">Programación</td>
                             <td class="table-cell">Base de Datos</td>
                             <td class="table-cell">Entornos de Desarrollo</td>
@@ -142,7 +165,7 @@
                             <td class="table-cell">-</td>
                         </tr>
                         <tr>
-                            <td class="table-cell">12:40 - 13:35</td>
+                            <td class="table-cell">12:40</td>
                             <td class="table-cell">Sistemas Informáticos</td>
                             <td class="table-cell">Base de Datos</td>
                             <td class="table-cell">Lenguaje de Marcas</td>
@@ -152,7 +175,7 @@
                             <td class="table-cell">-</td>
                         </tr>
                         <tr>
-                            <td class="table-cell">13:35 - 14:30</td>
+                            <td class="table-cell">13:35</td>
                             <td class="table-cell">Sistemas Informáticos</td>
                             <td class="table-cell">Base de Datos</td>
                             <td class="table-cell">Lenguaje de Marcas</td>
@@ -169,7 +192,7 @@
 
             <!-- Foro -->
             <section id="foro">
-                <h2>Foro de alumnos</h2>
+                <h2>FORO DE ALUMNOS</h2>
                 <div class="tema-foro">
                     <div class="alumno">
                         <img src="media/alumno1.png" alt="Miembro del equipo 1">
@@ -189,24 +212,6 @@
                 </div>
             </section>
 
-            <!-- Noticias -->
-            <section id="noticias"></section>
-                <h2>Noticias</h2>
-                <h3>Noticia 1</h3>
-                <p>Bienvenido a nuestra página principal. Aquí te damos una visión general de lo que ofrecemos.</p>
-                <h3>Noticia 2</h3>
-                <p>Bienvenido a nuestra página principal. Aquí te damos una visión general de lo que ofrecemos.</p>
-                <h3>Noticia 3</h3>
-                <p>Bienvenido a nuestra página principal. Aquí te damos una visión general de lo que ofrecemos.</p>
-            </section>
-            
-            
-            
-            
-            
-            
-
-            
         </main>
     </div>
     <footer>

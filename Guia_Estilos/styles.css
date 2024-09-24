@@ -1,297 +1,369 @@
-/* styles.css */
-
 /* Reseteo básico */
 body, h1, h2, h3, p, ul, li, form, input, textarea, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Establece el box-sizing a border-box */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
 }
 
 body {
-    font-family: 'Roboto', sans-serif; /* Fuente moderna y legible */
-    background-color: whitesmoke; /* Fondo gris claro y neutro */
-    color: #404040; /* Texto en gris oscuro para buen contraste */
-    line-height: 1.6;
+    background-color: whitesmoke; /* Color de fondo claro */
+    color: #31373C; /* Color neutro para los textos oscuros */
+    font-family: 'Poppins', sans-serif; /* Fuente principal para el cuerpo */
+    line-height: 1.6; /* Aumenta la legibilidad del texto */
 }
 
 /* Estilo del header */
 header {
-    background-color: #0C3414; /* Fondo oscuro */
-    text-align: center;
-    padding: 20px 0;
-    padding-bottom: 80px; /* Añadir espacio suficiente para los botones */
-    position: relative;
+    background-color: #5D7891; /* Azul oscuro para el header */
+    font-family: 'Merriweather', serif; /* Fuente para el título del header */
+    padding: 10px 0 60px 0; /* Espaciado superior e inferior */
+    position: relative; /* Posición relativa para elementos internos */
 }
 
-/* Banner de la imagen */
-.banner img {
-    width: 25%;
+.header-top {
+    align-items: center; /* Alinea los elementos verticalmente */
+    display: flex; /* Muestra los elementos en fila */
+    justify-content: space-between; /* Espaciado entre elementos */
+    padding: 20px; /* Espaciado interno */
 }
 
-/* Estilo para los botones */
-.botones {
-    margin-top: 10px;
+.header-left {
+    margin-left: 20px; /* Margen izquierdo */
 }
 
-.botones button {
-    padding: 15px 50px;
-    margin: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #c9ddcd;
-    border-radius: 15px;
-    border: none;
+.header-left img {
+    height: auto; /* Altura automática para la imagen */
+    width: 200px; /* Ancho fijo para la imagen */
 }
 
-.botones button:hover {
-    background-color: whitesmoke;
+.header-center {
+    flex-grow: 1; /* Permite que este elemento crezca */
+    text-align: center; /* Centra el contenido */
 }
 
-/* Estilo del menú de navegación */
+.header-center h1 {
+    color: whitesmoke; /* Color de texto claro */
+    font-size: 75px; /* Tamaño grande para el título */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.header-links {
+    display: flex; /* Muestra los enlaces en fila */
+    gap: 20px; /* Espacio entre enlaces */
+    justify-content: center; /* Centra los enlaces */
+}
+
+.header-links a {
+    color: whitesmoke; /* Color de texto claro para los enlaces */
+    font-size: 60px; /* Tamaño de fuente grande */
+    margin-left: 100px;
+    text-decoration: none; /* Elimina subrayado */
+}
+
+.header-links a:hover {
+    color: #28333D; /* Efecto hover con azul claro */
+}
+
+.header-right {
+    align-items: center; /* Alinea los elementos verticalmente */
+    display: flex; /* Muestra los elementos en fila */
+    flex-direction: column; /* Orienta los elementos en columna */
+    justify-content: center; /* Centra los elementos */
+    margin-right: 20px; /* Margen derecho */
+}
+
+.header-right button {
+    background-color: #28333D; /* Botones en gris oscuro */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    color: whitesmoke; /* Color de texto claro */
+    font-size: 16px; /* Tamaño de fuente para el botón */
+    font-weight: bold; /* Texto en negrita */
+    margin: 10px 0; /* Margen superior e inferior */
+    padding: 10px 20px; /* Espaciado interno */
+    width: 200px; /* Ancho fijo para el botón */
+}
+
+.header-right button:hover {
+    background-color: #479CE5; /* Hover en azul claro */
+    color: whitesmoke; /* Color de texto claro en hover */
+}
+
+/* Menú de navegación */
 .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: #c9ddcd; /* Fondo verde clarito */
-    position: absolute;
-    bottom: 0;  /* Mantener el menú en la parte inferior del header */
-    left: 0;
-    padding: 10px 0;
-    box-sizing: border-box;
+    align-items: center; /* Alinea los elementos verticalmente */
+    background-color: #28333D; /* Fondo gris para el menú */
+    border-bottom: 2px solid #28333D; /* Borde inferior del menú */
+    box-sizing: border-box; /* Establece el box-sizing a border-box */
+    bottom: 0; /* Posiciona en la parte inferior */
+    display: flex; /* Muestra los elementos en fila */
+    justify-content: space-between; /* Espaciado entre elementos */
+    left: 0; /* Posiciona a la izquierda */
+    padding: 10px 0; /* Espaciado interno */
+    position: absolute; /* Posición absoluta */
+    width: 100%; /* Ancho completo */
 }
 
-/* Estilo de los íconos del menú izquierdo */
 .nav-left, .nav-right {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+    display: flex; /* Muestra los elementos en fila */
+    list-style-type: none; /* Elimina viñetas de listas */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina padding */
 }
 
-.nav-left li, .nav-right li {
-    margin: 0 20px;
-}
-
-/* Estilo de los enlaces e íconos */
 .nav-left a, .nav-right a {
-    color: #0C3414; /* Verde oscuro */
-    font-size: 30px;
-    text-decoration: none;
+    color: whitesmoke; /* Color de texto claro para los enlaces */
+    font-size: 30px; /* Tamaño de fuente para los enlaces */
+    text-decoration: none; /* Elimina subrayado */
 }
 
 .nav-left a:hover, .nav-right a:hover {
-    color: #404040;
+    color: #479CE5; /* Efecto hover en azul claro */
 }
 
-/* Alinear correctamente el menú */
 .nav-left {
-    margin-left: 20px;
+    margin-left: 20px; /* Margen izquierdo */
 }
 
 .nav-right {
-    margin-right: 20px;
+    margin-right: 20px; /* Margen derecho */
 }
 
+.nav-left li, .nav-right li {
+    margin: 0 20px; /* Margen horizontal para los elementos de la lista */
+}
 
+/* Contenido general */
 .container {
-    display: flex;
-    
+    display: flex; /* Muestra el contenido en fila */
 }
 
+/* Barra lateral */
 .sidebar {
-    width: 25%;
-    padding: 20px;
-    background-color: #c9ddcd; /* Fondo blanco para la barra lateral */
-    text-align: center;
+    background-color: whitesmoke; /* Color de fondo claro */
+    border-right: 10px double #28333D; /* Borde derecho */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+    width: 25%; /* Ancho fijo de la barra lateral */
 }
 
 .sidebar h2 {
-    margin: 15px 0;
-    color: #0C3414; /* Encabezados en gris oscuro */
-    background: linear-gradient(to right , #0C3414, #c9ddcd, #c9ddcd, #c9ddcd, #0C3414);
-    border: 2px solid #0C3414;
-    font-size: 35px;
+    border-bottom: 10px double #28333D; /* Borde inferior */
+    color: #28333D; /* Texto en azul oscuro */
+    font-family: 'Merriweather', serif; /* Usar la fuente serif para el título */
+    font-size: 35px; /* Tamaño de fuente grande */
+    margin: 15px 0; /* Margen superior e inferior */
 }
 
-.sidebar ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    
+.sidebar ul {
+    list-style-type: none; /* Elimina viñetas de listas */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina padding */
+    width: 100%; /* Ancho completo */
 }
 
 .sidebar ul li a {
-    display: block;
-    color: #404040;
-    padding: 8px 16px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
+    color: #31373C; /* Texto gris oscuro */
+    display: block; /* El enlace ocupa todo el bloque */
+    font-size: 18px; /* Tamaño de fuente para los enlaces */
+    font-weight: bold; /* Texto en negrita */
+    padding: 8px 16px; /* Espaciado interno */
+    text-decoration: none; /* Elimina subrayado */
 }
 
 .sidebar ul li a:hover {
-    background-color: #0C3414;
-    color: whitesmoke;
-    font-size: 20px;
+    background-color: #5D7891; /* Hover en gris oscuro */
+    color: whitesmoke; /* Color de texto claro en hover */
 }
 
+/* Estilo del formulario */
 form {
-    background-color: #c9ddcd; /* Fondo blanco para el formulario */
-    padding: 20px;
-    font-weight: bold;
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-    color: #404040; /* Etiquetas en gris oscuro */
-}
-
-form input, form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #0C3414; /* Borde gris claro */
-    border-radius: 4px;
+    background-color: whitesmoke; /* Fondo blanco */
+    font-weight: bold; /* Texto en negrita */
+    padding: 20px; /* Espaciado interno */
 }
 
 form button {
-    background-color: #0C3414; /* Botón azul claro */
-    color: #ffffff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
+    background-color: #28333D; /* Fondo del botón */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    color: #ffffff; /* Color de texto blanco */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    font-size: 1em; /* Tamaño de fuente estándar */
+    padding: 12px 20px; /* Espaciado interno */
 }
 
+form button:hover {
+    background-color: #479CE5; /* Hover en azul claro */
+}
 
+form input, form textarea {
+    border: 1px solid #535D66; /* Borde gris oscuro */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-bottom: 15px; /* Margen inferior */
+    padding: 12px; /* Espaciado interno */
+    width: 100%; /* Ancho completo */
+}
+
+form label {
+    color: #31373C; /* Color de texto gris oscuro */
+    display: block; /* El label ocupa todo el bloque */
+    margin-bottom: 5px; /* Margen inferior */
+}
+
+/* Sección principal */
 main {
-    width: 75%;
-    margin: 15px;
-    padding: 20px;
-    background-color: whitesmoke; /* Fondo blanco para el contenido principal */
-}
-
-main section {
-    margin-bottom: 40px;
+    background-color: whitesmoke; /* Fondo blanco */
+    margin: 15px; /* Margen alrededor */
+    padding: 20px; /* Espaciado interno */
+    width: 75%; /* Ancho fijo de la sección principal */
 }
 
 main h2 {
-    border: 2px solid #0C3414;
-    color:  #404040; /* Encabezados en gris oscuro */
-    font-size: 35px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    background: linear-gradient(to right , #0C3414, whitesmoke, whitesmoke, whitesmoke, whitesmoke, whitesmoke,  #0C3414);
-    text-align: center
+    background: linear-gradient(to right, #5D7891, whitesmoke, whitesmoke, whitesmoke, #5D7891); /* Fondo con degradado */
+    color: #31373C; /* Color de texto gris oscuro */
+    font-family: 'Merriweather', serif; /* Usar la fuente serif para el título */
+    font-size: 35px; /* Tamaño de fuente grande */
+    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 30px; /* Margen inferior */
+    text-align: center; /* Centra el texto */
 }
 
+main section {
+    margin-bottom: 50px; /* Margen inferior para las secciones */
+}
+
+#home {
+    color: #31373C; /* Color de texto gris oscuro para mayor contraste */
+    line-height: 1.8; /* Mejora la legibilidad aumentando el interlineado */
+    padding: 20px; /* Añadir espacio alrededor de la sección */
+    text-align: center; /* Centra el texto */
+}
+
+#home p {
+    font-size: 16px; /* Tamaño de fuente legible */
+    margin-bottom: 30px; /* Espacio entre los párrafos */
+    margin-left: auto; /* Centramos el párrafo */
+    margin-right: auto; /* Aseguramos que esté centrado */
+    max-width: 1200px; /* Limitar el ancho de los párrafos */
+}
+
+/* Galería de imágenes */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    text-align: center;
+    display: grid; /* Utiliza grid para la disposición */
+    gap: 30px; /* Espacio entre elementos de la galería */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+    grid-template-rows: repeat(2, auto); /* 2 filas automáticas */
+    margin: 0 auto;
+    text-align: center; /* Centra el texto */
+    width: 80%;
+    
 }
 
-.gallery a{
-    background-color: #0C3414;
-    text-decoration: none;
-    color: #c9ddcd;
-    font-size: 20px;
-    border-radius:0 0 8px 8px ;
-    padding: 5px;
-    border-radius: 30px 0 30px 0;
+.gallery a {
+    background-color: whitesmoke; /* Color de fondo claro */
+    border: 2px solid #28333D; /* Borde gris oscuro */
+    border-radius: 30px 0 30px 0; /* Bordes redondeados */
+    color: #28333D; /* Color de texto gris oscuro */
+    font-size: 20px; /* Tamaño de fuente para los enlaces */
+    font-weight: bold;
+    padding: 5px; /* Espaciado interno */
+    text-decoration: none; /* Elimina subrayado */
+    width: 80%;
+
+}
+
+.gallery a:hover {
+    box-shadow: 10px 15px 15px #28333D; /* Sombra en hover */
 }
 
 .gallery img {
-    width: 100%;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra ligera para profundidad */
-    border-radius: 30px 0 30px 0;
-}
-
-.gallery a:hover{
-    box-shadow: 10px 15px 15px #0C3414;
+    border-radius: 30px 0 30px 0; /* Bordes redondeados para imágenes */
+    height: auto; /* Altura automática */
+    width: 100%; /* Ancho completo */
 }
 
 
-/* Ajuste para que la tabla ocupe el 100% del ancho */
+/* Tabla de calendario sobria y formal */
 .tabla-horarios {
-    width: 100%;
-    border-collapse: collapse; /* Elimina los espacios entre las celdas */
-    text-align: center; /* Centra el contenido de las celdas */
-    table-layout: fixed; /* Asegura que las columnas tengan el mismo ancho */
-    border: 2px solid #0C3414; /* Borde exterior de la tabla en verde oscuro */
+    border: 1px solid #31373C; /* Bordes más sutiles y neutrales */
+    border-collapse: collapse; /* Colapsa bordes */
+    width: 80%;
+    margin: 0 auto;
+    font-size: 16px; /* Fuente sobria */
+    table-layout: auto; /* Ajustar a los contenidos */
+    text-align: center; /* Centra el texto */
+    width: 80%; /* Ancho completo */
 }
 
-/* Estilo para las cabeceras */
-.table-header {
-    background-color: #0C3414; /* Verde oscuro */
-    color: whitesmoke   ; /* Texto en blanco */
-    padding: 10px;
-    font-weight: bold;
-    border: none; /* Elimina los bordes interiores */
-}
-
-/* Columna de horas con color gris claro */
-.table-cell:first-child {
-    background-color: #b4b4b4; /* Gris clarito */
-    color: #404040;
-    padding: 10px;
-    border: none; /* Elimina los bordes interiores */
-    font-weight: bold;
-}
-
-/* Estilo para las filas impares (blancas) */
-tbody tr:nth-child(odd) {
-    background-color: whitesmoke;
-}
-
-/* Estilo para las filas pares (verde clarito) */
-tbody tr:nth-child(even) {
-    background-color: #c9ddcd; /* Verde clarito */
-}
-
-/* Estilo general para todas las celdas */
 .table-cell {
-    padding: 10px;
-    border: none; /* Elimina los bordes interiores */
-    text-align: center; /* Centrado */
+    border-bottom: 1px solid #d1d1d1; /* Bordes sutiles entre filas */
+    color: #31373C; /* Color de texto gris oscuro para las celdas */
+    padding: 15px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
 }
 
+.table-cell:first-child {
+    background-color: #535D66; /* Primera columna en gris oscuro */
+    color: #ffffff; /* Texto en blanco para mayor contraste */
+    font-weight: bold; /* Texto en negrita */
+    padding: 12px; /* Espaciado interno */
+}
 
+.table-header {
+    background-color: #28333D; /* Encabezado en azul oscuro */
+    color: whitesmoke; /* Color de texto claro */
+    font-weight: bold; /* Texto en negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    padding: 15px; /* Espaciado interno */
+    text-transform: uppercase; /* Letra en mayúsculas para el encabezado */
+    border-bottom: 2px solid #31373C; /* Borde inferior */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #EAEAEA; /* Fila par en gris más oscuro */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #F7F7F7; /* Fila impar en gris claro */
+}
+
+tbody tr:hover {
+    background-color: #D1E3F1; /* Efecto hover en un azul claro suave */
+}
+
+/* Sección de equipo */
 .tema-foro {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex; /* Muestra los elementos en fila */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+    gap: 20px; /* Espacio entre elementos */
+    margin: 0 auto;
+    width: 80%;
+    
 }
 
 .alumno {
-    width: calc(30.333% - 20px);
-    background-color: whitesmoke; /* Fondo blanco para los perfiles del equipo */
-    padding: 20px;
-    border: 2px solid #0C3414; /* Borde gris claro */
-    text-align: center;
-    box-shadow: 5px 10px 10px #0C3414;
-    border-radius: 30px 0 30px 0;
+    background-color: whitesmoke; /* Color de fondo claro */
+    border: 2px solid #535D66; /* Borde gris oscuro */
+    border-radius: 30px 0 30px 0; /* Bordes redondeados */
+    box-shadow: 5px 10px 10px #535D66; /* Sombra para dar profundidad */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+    width: calc(27.333% - 20px); /* Ancho relativo con espacio entre elementos */
 }
 
 .alumno img {
-    border-radius: 50%; /* Imágenes redondas */
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    height: 100px; /* Altura fija para la imagen */
+    margin-bottom: 10px; /* Margen inferior */
+    width: 100px; /* Ancho fijo para la imagen */
 }
 
-
-
+/* Footer */
 footer {
-    background-color: #c9ddcd; /* Fondo oscuro consistente con el encabezado */
-    color: #0C3414; /* Texto claro para buen contraste */
-    font-weight: bold;
-    text-align: center;
-    padding: 20px;
+    background-color: #28333D; /* Color de fondo oscuro */
+    color: whitesmoke; /* Color de texto claro */
+    font-weight: bold; /* Texto en negrita */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
 }
