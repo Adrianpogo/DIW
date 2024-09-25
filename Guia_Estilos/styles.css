@@ -47,23 +47,6 @@ header {
     margin-bottom: 20px; /* Espacio inferior */
 }
 
-.header-links {
-    display: flex; /* Muestra los enlaces en fila */
-    gap: 20px; /* Espacio entre enlaces */
-    justify-content: center; /* Centra los enlaces */
-}
-
-.header-links a {
-    color: whitesmoke; /* Color de texto claro para los enlaces */
-    font-size: 60px; /* Tamaño de fuente grande */
-    margin-left: 100px;
-    text-decoration: none; /* Elimina subrayado */
-}
-
-.header-links a:hover {
-    color: #28333D; /* Efecto hover con azul claro */
-}
-
 .header-right {
     align-items: center; /* Alinea los elementos verticalmente */
     display: flex; /* Muestra los elementos en fila */
@@ -366,4 +349,22 @@ footer {
     font-weight: bold; /* Texto en negrita */
     padding: 20px; /* Espaciado interno */
     text-align: center; /* Centra el texto */
+}
+
+.footer-links {
+    gap: 20px; /* Espacio entre enlaces */
+    justify-content: center; /* Centra los enlaces */
+    margin-bottom: 10px ;
+}
+
+.footer-links a {
+    color: whitesmoke; /* Color de texto claro para los enlaces */
+    
+    padding: 40px;
+    font-size: 40px; /* Tamaño de fuente grande */
+    text-decoration: none; /* Elimina subrayado */
+}
+
+.footer-links a:hover {
+    color: #479CE5; /* Efecto hover con azul claro */
 }
