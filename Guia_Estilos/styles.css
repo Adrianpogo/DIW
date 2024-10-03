@@ -157,6 +157,7 @@ header {
 .sidebar ul li a:hover {
     background-color: #5D7891; /* Hover en gris oscuro */
     color: whitesmoke; /* Color de texto claro en hover */
+    transform: scale(1.2);
 }
 
 /* Estilo del formulario */
