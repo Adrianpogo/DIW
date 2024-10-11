@@ -154,7 +154,7 @@ nav ul li a:hover {
 
 .subrayado{
     transform: rotate(180deg);
-    width: 400px;
+    width: 200px;
     margin-bottom: 10px ;
     margin-top: 5px;
 }
@@ -229,5 +229,6 @@ nav ul li a:hover {
     font-size: 24px;
     padding: 10px;
     border-radius: 10px;
+    font-family: "Tangerine", Arial, sans-serif;
 }
 
