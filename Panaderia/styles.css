@@ -220,12 +220,13 @@ nav ul li a:hover {
 
 .recomendaciones h3 {
     width: 90%;
-    margin: 0px auto;
-    background: linear-gradient( to right,  #715d4d9c 70%, transparent);
+    margin: 20px auto;
+    background: linear-gradient( to right, transparent, #715d4d9c, transparent);
     color: whitesmoke;
     font-size: 24px;
     padding: 10px;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 /* Contenedor de la recomendación centrado */
