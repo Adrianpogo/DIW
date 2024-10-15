@@ -4,7 +4,7 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .contenedor{
-    background: linear-gradient( to bottom right,whitesmoke 60%, #715d4d );
+    background: linear-gradient( to bottom right,whitesmoke 40%, #715d4d );
     background-color: #C8BBAD;
     padding: 5px 90px;
 }
@@ -237,6 +237,7 @@ nav ul li a:hover {
     padding: 10px;
     border-radius: 10px;
     font-weight: bold;
+    letter-spacing: 2px;
 }
 
 /* Contenedor de la recomendación centrado */
