@@ -158,20 +158,30 @@ nav ul li a:hover {
     margin-top: 5px;
 }
 
-.novedades-recomendaciones{
+.novedades-recomendaciones {
     display: flex;
-    
+    justify-content: space-between;
+    align-items: flex-start; /* Alineación superior */
+    width: 100%;
 }
 
-.novedades{
-    width: 50%;
-    margin: 0 auto;
+.novedades, .recomendaciones {
+    width: 45%;
 }
 
+.linea-divisoria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
 
-.recomendaciones{
-    width: 50%;
-    margin: 0 auto;
+.linea-divisoria img {
+    margin-top: 500px;
+    height: 80px; /* Hace que la imagen de la divisoria ocupe todo el alto */
+    width: auto;
+    rotate: 90deg; /* Mantiene la rotación de la imagen */
 }
 
 
@@ -338,6 +348,8 @@ nav ul li a:hover {
     font-style: italic;
     color: black;
 }
+
+
 
 
 
