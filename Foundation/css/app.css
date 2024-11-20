@@ -1,0 +1,43 @@
+
+.hero-section {
+    background: url("https://www.shutterstock.com/image-photo/video-game-concept-esports-blockchain-260nw-2131102466.jpg") 50% no-repeat;
+    background-size: cover;
+    height: 60vh;
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .hero-section .hero-section-text {
+    color: #fefefe;
+    text-shadow: 1px 1px 2px #0a0a0a;
+  }
+
+  .hero-title{
+    font-size: 5rem;
+  }
+
+  .lead {
+    font-style: italic;
+  }
+
+  .fi-monitor {
+    font-family: "foundation-icons" ;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+    font-size: 2rem; /* Ajusta el tamaño según lo necesario */
+  }
+  
+  
