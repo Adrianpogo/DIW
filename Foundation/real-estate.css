@@ -1,0 +1,121 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: #24222D;
+}
+
+.top-bar{
+    background-color: #8871CD;
+}
+
+.top-bar ul{
+    background-color: #8871CD;
+}
+
+.top-bar ul li a{
+    color: whitesmoke;
+}
+
+.top-bar ul li a:hover{
+    color: #24222D;
+    text-shadow: 2px 2px 2px #B1A8DD;
+}
+
+
+.menu-text{
+    font-size: 24px ;
+    
+}
+
+.button{
+    background-color: #B1A8DD;
+    font-weight: bold;
+}
+
+.button:hover{
+    background-color: whitesmoke;
+    font-weight: bold;
+    color: #24222D;
+}
+
+h1{
+    color: #B1A8DD;
+}
+
+.row p{
+    color: whitesmoke;
+}
+
+.callout .subheader{
+    color: #24222D;
+}
+
+.callout p{
+    color: #24222D;
+}
+.callout .lead{
+    color: #24222D;
+    text-shadow: 0px 0px 2px grey;
+    font-weight: bold;
+    
+}
+
+.titulo{
+    font-size: 18px;
+    border-bottom: 2px solid #B1A8DD;
+}
+
+.destinos {
+    text-align: center;
+    background: linear-gradient( #B1A8DD, #24222D );
+    font-size: 30px;
+    padding: 10px;
+    margin-top: 30px;
+    
+}
+
+.div {
+    background-color: #B1A8DD;
+}
+
+.callout.secondary {
+    background-color: #100f13;
+    margin-bottom: 0;
+    
+}
+
+.footer-inf{
+    background-color: #8871CD ;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.footer-inf p{
+    font-size: 15px;
+}
+
+.callout.secondary p{
+    color: white;
+}
+
+.callout.secondary a{
+    color: #B1A8DD;
+}
+.callout.secondary a:hover{
+    text-decoration: underline;
+}
+
+.callout.secondary i{
+    font-size: 20px;
+}
+
+.cargar{
+    margin-bottom: 100px;
+}
+
+.row label{
+    color: #B1A8DD;
+}
