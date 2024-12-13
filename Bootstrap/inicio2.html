@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: whitesmoke;
+            
+        }
+
+        .titulo{
+            display: flex;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            
+        }
+         h1{
+            background-color:  rgb(209, 209, 209);
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            width: 100%;
+         }
+
+        .imagenes{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contenido{
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1000px;
+            
+        }
+
+        .contenido-superior{
+            display: flex;
+            gap: 10px;
+                
+        }
+
+        .contenido-inferior{
+            display: flex;
+            gap: 10px; 
+        }
+
+        .grande, .pequeño{
+            padding: 10px;
+            background-color: rgb(209, 209, 209);
+            border-radius: 5px;
+        }
+
+        .grande{
+            flex: 2;
+        }
+
+        .pequeño{
+            flex: 1;
+        }
+
+        .formulario{
+            background-color: rgb(209, 209, 209);
+            border-radius: 5px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .formulario h2{
+            background-color: rgb(209, 209, 209);
+            padding: 15px;
+        }
+        
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: rgb(209, 209, 209);
+            
+            
+        }
+
+        button{
+            background-color: rgb(42, 106, 165);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin:  10px 15px;
+        }
+
+        input, textarea{
+            padding: 10px;
+            margin:  5px 15px;
+            border: none;
+            border: 1px solid rgb(177, 176, 176);
+            resize: none;
+            border-radius: 5px;
+        }
+
+        
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="titulo">
+        <h1>Flexbox Responsive Web</h1>
+    </div>
+
+    <div class="imagenes">
+        <img src="https://placehold.co/300x300">
+        <img src="https://placehold.co/300x300">
+        <img src="https://placehold.co/300x300">
+    </div>
+
+    <div class="contenido">
+        <div class="contenido-superior">
+            <div class="grande">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at viverra quam. Morbi at orci eu ante blandit tincidunt at fringilla nibh. 
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque dolor est, euismod a hendrerit sit amet, 
+                suscipit sed arcu. Quisque vel urna sed massa mollis accumsan. Nam ullamcorper blandit tempor. Donec quis venenatis arcu. Donec placerat risus nec justo luctus, 
+                vitae dictum lorem sagittis.
+            </div>
+            <div class="pequeño">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at viverra quam. Morbi at orci eu ante blandit tincidunt at fringilla nibh. 
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque dolor est, euismod a hendrerit sit amet, 
+                suscipit sed arcu.
+            </div>
+        </div>
+        <div class="contenido-inferior">
+            <div class="pequeño">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at viverra quam. Morbi at orci eu ante blandit tincidunt at fringilla nibh. 
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque dolor est, euismod a hendrerit sit amet, 
+                suscipit sed arcu.
+            </div>
+            <div class="grande">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at viverra quam. Morbi at orci eu ante blandit tincidunt at fringilla nibh. 
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque dolor est, euismod a hendrerit sit amet, 
+                suscipit sed arcu. Quisque vel urna sed massa mollis accumsan. Nam ullamcorper blandit tempor. Donec quis venenatis arcu. Donec placerat risus nec justo luctus, 
+                vitae dictum lorem sagittis.
+            </div>
+        </div>
+    </div>
+
+    <div class="formulario">
+        <h2>Formulario de Contacto</h2>
+        <form action="">
+            <input type="text" placeholder="Nombre">
+            <input type="email" placeholder="Correo Eletrónico">
+            <textarea placeholder="Mensaje"></textarea>
+            <button>Enviar</button>
+        </form>
+    </div>
+    
+</body>
+</html>
