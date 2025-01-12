@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protectora de Animales</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #4CAF50;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            background: url('https://source.unsplash.com/1600x900/?animals') center/cover no-repeat;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 1rem 0 0.5rem;
+        }
+
+        .card p {
+            padding: 0 1rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Protectora de Animales</h1>
+        <p>Ayúdanos a darles un hogar</p>
+    </header>
+
+    <nav>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#adopciones">Adopciones</a>
+        <a href="#donaciones">Donaciones</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section class="hero">
+        <h1>¡Adopta, No Compres!</h1>
+        <p>Porque todos los animales merecen una segunda oportunidad.</p>
+    </section>
+
+    <section id="adopciones" class="container">
+        <div class="card">
+            <img src="https://source.unsplash.com/300x200/?dog" alt="Perro en adopción">
+            <h3>Max</h3>
+            <p>Max es un perro amigable que busca una familia amorosa.</p>
+        </div>
+        <div class="card">
+            <img src="https://source.unsplash.com/300x200/?cat" alt="Gato en adopción">
+            <h3>Luna</h3>
+            <p>Luna es una gata juguetona y cariñosa esperando ser adoptada.</p>
+        </div>
+        <div class="card">
+            <img src="https://source.unsplash.com/300x200/?rabbit" alt="Conejo en adopción">
+            <h3>Bunny</h3>
+            <p>Bunny es un conejo tierno que necesita un hogar.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Protectora de Animales. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
