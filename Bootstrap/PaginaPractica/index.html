@@ -22,6 +22,22 @@
         .nav-link:hover{
             background-color: rgb(170, 76, 76);
         }
+
+        .slider{
+            width: 50px;
+            height: 50px;
+        }
+
+        .dropdown-item:hover{
+            background-color: rgb(229, 160, 160);
+        }
+
+        .list-group-item:hover{
+            background-color: rgb(170, 76, 76);
+            color: white;
+        }
+
+
     </style>
 </head>
 <body>
@@ -37,8 +53,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item m-2"><a class="nav-link active" href="#">Inicio</a></li>
-                    <li class="nav-item m-2"><a class="nav-link" href="#">Noticias</a></li>
-                    <li class="nav-item m-2"><a class="nav-link" href="#">Competiciones</a></li>
+                    <li class="nav-item m-2 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="noticiasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"" href="#">Noticias</a>
+                        <ul class="dropdown-menu" aria-labelledby="noticiasDropdown">
+                            <li><a class="dropdown-item" href="#">Últimas Noticias</a></li>
+                            <li><a class="dropdown-item" href="#">Cronicas</a></li>
+                            <li><a class="dropdown-item" href="#">Foro de noticias</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item m-2 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="noticiasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"" href="#">Competiciones</a>
+                        <ul class="dropdown-menu" aria-labelledby="noticiasDropdown">
+                            <li><a class="dropdown-item" href="#">Senior</a></li>
+                            <li><a class="dropdown-item" href="#">Juvenil</a></li>
+                            <li><a class="dropdown-item" href="#">Alevín</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item m-2"><a class="nav-link" href="#">Selecciones</a></li>
                     <li class="nav-item m-2"><a class="nav-link" href="#">Contacto</a></li>
                 </ul>
@@ -65,48 +95,99 @@
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-            <img src="menor-que.png" alt="Anterior" class="carousel-control-prev-icon" aria-hidden="true">
+            <img src="menor-que.png" alt="Anterior" class="carousel-control-prev-icon slider" aria-hidden="true">
             
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-            <img src="menor-que.png" alt="Siguiente" class="carousel-control-next-icon" aria-hidden="true">
+            <img src="mayor-que.png" alt="Siguiente" class="carousel-control-next-icon slider" aria-hidden="true">
         </button>
     </div>
 
     <!-- News Section -->
-    <div class="container my-5">
-        <h2 class="text-center mb-4">Últimas Noticias</h2>
+    <div class="container my-4 ">
         <div class="row">
-            <div class="col-md-4">
-                <div class="card news-card border border-2 border-danger">
-                    <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1750_99b9c312e0.jpg&w=828&q=75" class="card-img-top" alt="Noticia 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Noticia 1</h5>
-                        <p class="card-text">Descripción breve de la noticia 1.</p>
-                        <a href="#" class="btn btn-outline-danger ">Leer más</a>
+            <aside class="col-md-3 mb-3">
+                <h2 class="p-2 ">Enlaces</h2>
+                <div class="list-group mt-3 rounded-left px-2">
+                    <a href="#" class="list-group-item list-group-item-action">Clasificacion</a>
+                    <a href="#" class="list-group-item list-group-item-action">Resultados</a>
+                    <a href="#" class="list-group-item list-group-item-action">Calendario</a>
+                    <a href="#" class="list-group-item list-group-item-action">Estadisticas</a>
+                </div>
+            </aside>
+
+            <main class="col-md-9  ">
+                <h2 class="p-2">Secciones principales</h2>
+                <div class="accordion mt-3 px-2" id="infoAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button active bg-danger text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Ultimas Noticias
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card news-card border border-2 border-danger">
+                                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1750_99b9c312e0.jpg&w=828&q=75" class="card-img-top" alt="Noticia 1">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Noticia 1</h5>
+                                                <p class="card-text">Descripción breve de la noticia 1.</p>
+                                                <a href="#" class="btn btn-outline-danger ">Leer más</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card news-card border border-2 border-danger">
+                                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FGh_F54_5_WYAA_Pl_DI_b51742ffaa.jpg&w=828&q=75" class="card-img-top" alt="Noticia 2">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Noticia 2</h5>
+                                                <p class="card-text">Descripción breve de la noticia 2.</p>
+                                                <a href="#" class="btn btn-outline-danger ">Leer más</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card news-card border border-2 border-danger">
+                                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1449portada_2204b770f7.JPG&w=828&q=75" class="card-img-top" alt="Noticia 3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Noticia 3</h5>
+                                                <p class="card-text">Descripción breve de la noticia 3.</p>
+                                                <a href="#" class="btn btn-outline-danger ">Leer más</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item ">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed bg-danger text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Competiciones
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                Detalles de las competiciones, equipos y resultados.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed bg-danger text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Selecciones Nacionales
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                Información sobre las selecciones y sus entrenamientos.
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card news-card border border-2 border-danger">
-                    <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FGh_F54_5_WYAA_Pl_DI_b51742ffaa.jpg&w=828&q=75" class="card-img-top" alt="Noticia 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Noticia 2</h5>
-                        <p class="card-text">Descripción breve de la noticia 2.</p>
-                        <a href="#" class="btn btn-outline-danger ">Leer más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card news-card border border-2 border-danger">
-                    <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1449portada_2204b770f7.JPG&w=828&q=75" class="card-img-top" alt="Noticia 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Noticia 3</h5>
-                        <p class="card-text">Descripción breve de la noticia 3.</p>
-                        <a href="#" class="btn btn-outline-danger ">Leer más</a>
-                    </div>
-                </div>
-            </div>
+            </main>
         </div>
     </div>
 
@@ -122,7 +203,6 @@
         </div>
     </footer>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
