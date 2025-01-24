@@ -1,60 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_red.css">
+    
+
     <style>
         .navbar-brand img {
             max-height: 50px;
         }
+
         .carousel-item img {
             height: 600px;
             object-fit: cover;
         }
+
         .news-card img {
             height: 200px;
             object-fit: cover;
         }
 
-        .nav-link:hover{
+        .nav-link:hover {
             background-color: rgb(170, 76, 76);
         }
 
-        .slider{
+        .slider {
             width: 50px;
             height: 50px;
         }
 
-        .dropdown-item:hover{
+        .dropdown-item:hover {
             background-color: rgb(229, 160, 160);
         }
 
-        .list-group-item:hover{
+        .list-group-item:hover {
             background-color: rgb(170, 76, 76);
             color: white;
         }
 
+        /* Contenedor general */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
 
+        /* Imagen por defecto */
+        .image-zoom {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Efecto de zoom y filtro rojo en hover */
+        .image-container:hover .image-zoom {
+            transform: scale(1.1);
+            /* Ligeramente más grande */
+            filter: brightness(50%) sepia(100%) hue-rotate(-50deg) saturate(300%);
+        }
+
+        /* Texto centrado con fondo rojo semitransparente */
+        .overlay {
+            opacity: 0;
+            background-color: rgba(255, 0, 0, 0.5);
+            /* Fondo rojo translúcido */
+            transition: opacity 0.3s ease;
+        }
+
+        /* Mostrar texto al hacer hover */
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        #mini-calendar {
+            font-size: 0.9rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .calendar-body .row .col {
+            padding: 5px;
+            margin: 2px 0;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        .event-day {
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .event-day:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .calendar-footer p span.badge {
+            display: inline-block
+        }
+
+        .mini-imagen {
+            width: 50px;
+            height: 50px;
+        }
+
+        
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2Frffm_banner_horizontal_1f456e9471.png&w=640&q=75" alt="Logo">
+                <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2Frffm_banner_horizontal_1f456e9471.png&w=640&q=75"
+                    alt="Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item m-2"><a class="nav-link active" href="#">Inicio</a></li>
                     <li class="nav-item m-2 dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="noticiasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"" href="#">Noticias</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="noticiasDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"" href=" #">Noticias</a>
                         <ul class="dropdown-menu" aria-labelledby="noticiasDropdown">
                             <li><a class="dropdown-item" href="#">Últimas Noticias</a></li>
                             <li><a class="dropdown-item" href="#">Cronicas</a></li>
@@ -62,7 +142,8 @@
                         </ul>
                     </li>
                     <li class="nav-item m-2 dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="noticiasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"" href="#">Competiciones</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="noticiasDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"" href=" #">Competiciones</a>
                         <ul class="dropdown-menu" aria-labelledby="noticiasDropdown">
                             <li><a class="dropdown-item" href="#">Senior</a></li>
                             <li><a class="dropdown-item" href="#">Juvenil</a></li>
@@ -76,18 +157,20 @@
         </div>
     </nav>
 
-    <!-- Carousel -->
+    <!-- Carrusel -->
     <div id="mainCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_4402b_8438721b35.JPG&w=1920&q=75" class="d-block w-100" alt="Noticia 1">
+                <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_4402b_8438721b35.JPG&w=1920&q=75"
+                    class="d-block w-100" alt="Noticia 1">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>Noticia 1</h2>
                     <p>Descripción breve de la noticia destacada.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1523_e678f13e40.JPG&w=828&q=75 " class="d-block w-100 " alt="Noticia 2">
+                <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1523_e678f13e40.JPG&w=828&q=75 "
+                    class="d-block w-100 " alt="Noticia 2">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>Noticia 2</h2>
                     <p>Descripción breve de la noticia destacada.</p>
@@ -96,7 +179,7 @@
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
             <img src="menor-que.png" alt="Anterior" class="carousel-control-prev-icon slider" aria-hidden="true">
-            
+
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
             <img src="mayor-que.png" alt="Siguiente" class="carousel-control-next-icon slider" aria-hidden="true">
@@ -106,17 +189,43 @@
     <!-- Main Section -->
     <div class="container my-4 ">
         <div class="row">
-            
+
+            <div class="d-sm-block d-md-none">
+                <h2 class="px-0 mt-3">Buscar</h2>
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;"></div>
+                </div>
+                <form class="d-flex mt-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                    <button class="btn btn-danger" type="submit">Buscar</button>
+                </form>
+            </div>
+
+            <div class="d-sm-block d-md-none">
+                <h2 class="px-0 mt-4 ">Enlaces</h2>
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar bg-danger px-0" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="list-group mt-3 rounded-left px-0">
+                    <a href="#" class="list-group-item list-group-item-action">Clasificacion</a>
+                    <a href="#" class="list-group-item list-group-item-action">Resultados</a>
+                    <a href="#" class="list-group-item list-group-item-action">Calendario</a>
+                    <a href="#" class="list-group-item list-group-item-action">Estadisticas</a>
+                </div>
+            </div>
 
             <main class="col-lg-9  mb-5">
                 <h2 class="px-0">Noticias</h2>
                 <div class="progress" style="height: 2px;">
-                    <div class="progress-bar bg-danger p-2" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger p-2" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="row p-2 mt-3">
                     <div class="col-md-4 mb-3">
                         <div class="card news-card border border-2 border-danger">
-                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1750_99b9c312e0.jpg&w=828&q=75" class="card-img-top" alt="Noticia 1">
+                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1750_99b9c312e0.jpg&w=828&q=75"
+                                class="card-img-top" alt="Noticia 1">
                             <div class="card-body">
                                 <h5 class="card-title">Noticia 1</h5>
                                 <p class="card-text">Descripción breve de la noticia 1.</p>
@@ -126,7 +235,8 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <div class="card news-card border border-2 border-danger">
-                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FGh_F54_5_WYAA_Pl_DI_b51742ffaa.jpg&w=828&q=75" class="card-img-top" alt="Noticia 2">
+                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FGh_F54_5_WYAA_Pl_DI_b51742ffaa.jpg&w=828&q=75"
+                                class="card-img-top" alt="Noticia 2">
                             <div class="card-body">
                                 <h5 class="card-title">Noticia 2</h5>
                                 <p class="card-text">Descripción breve de la noticia 2.</p>
@@ -136,7 +246,8 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <div class="card news-card border border-2 border-danger">
-                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1449portada_2204b770f7.JPG&w=828&q=75" class="card-img-top" alt="Noticia 3">
+                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1449portada_2204b770f7.JPG&w=828&q=75"
+                                class="card-img-top" alt="Noticia 3">
                             <div class="card-body">
                                 <h5 class="card-title">Noticia 3</h5>
                                 <p class="card-text">Descripción breve de la noticia 3.</p>
@@ -148,16 +259,20 @@
 
                 <h2 class="px-0">Clasificaciones</h2>
                 <div class="progress" style="height: 2px;">
-                    <div class="progress-bar bg-danger p-2" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger p-2" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="accordion mt-3 px-2 pb-4" id="infoAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button active bg-danger text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Senior
+                            <button class="accordion-button active bg-danger text-light" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Senior
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#infoAccordion">
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#infoAccordion">
                             <div class="accordion-body">
                                 <div class="table-responsive">
                                     <table class="table table-hover table-striped">
@@ -220,11 +335,14 @@
                     </div>
                     <div class="accordion-item ">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed bg-danger text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button collapsed bg-danger text-light" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
                                 Juvenil
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#infoAccordion">
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#infoAccordion">
                             <div class="accordion-body">
                                 <div class="accordion-body">
                                     <div class="table-responsive">
@@ -289,11 +407,14 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed bg-danger text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="accordion-button collapsed bg-danger text-light" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
                                 Alevín
                             </button>
                         </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#infoAccordion">
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#infoAccordion">
                             <div class="accordion-body">
                                 <div class="accordion-body">
                                     <div class="table-responsive">
@@ -359,56 +480,226 @@
                     </div>
                 </div>
 
-                <h2 class="px-0">Selecciones</h2>
-                <div class="progress" style="height: 2px;">
-                    <div class="progress-bar bg-danger p-2" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+                <section class="py-5">
+                    <h2 class="  px-0">Selecciones</h2>
+                    <div class="progress" style="height: 2px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;"></div>
+                    </div>
+                    <div class="container mt-3">
+                        <div class="row g-3">
+                            <!-- Imagen 1 -->
+                            <div class="col-md-4">
+                                <div class="image-container position-relative overflow-hidden">
+                                    <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_4402b_8438721b35.JPG&w=1920&q=75"
+                                        alt="Selección 1" class="img-fluid image-zoom">
+                                    <div
+                                        class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white fw-bold">
+                                        Selección 1
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Imagen 2 -->
+                            <div class="col-md-4">
+                                <div class="image-container position-relative overflow-hidden">
+                                    <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_4402b_8438721b35.JPG&w=1920&q=75"
+                                        alt="Selección 2" class="img-fluid image-zoom">
+                                    <div
+                                        class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white fw-bold">
+                                        Selección 2
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Imagen 3 -->
+                            <div class="col-md-4">
+                                <div class="image-container position-relative overflow-hidden">
+                                    <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_4402b_8438721b35.JPG&w=1920&q=75"
+                                        alt="Selección 3" class="img-fluid image-zoom">
+                                    <div
+                                        class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white fw-bold">
+                                        Selección 3
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-                
-            </main>
-            <aside class="col-lg-3 mb-3">
-                <h2 class="px-0 ">Enlaces</h2>
-                <div class="progress" style="height: 2px;">
-                    <div class="progress-bar bg-danger px-0" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="list-group mt-3 rounded-left px-0">
-                    <a href="#" class="list-group-item list-group-item-action">Clasificacion</a>
-                    <a href="#" class="list-group-item list-group-item-action">Resultados</a>
-                    <a href="#" class="list-group-item list-group-item-action">Calendario</a>
-                    <a href="#" class="list-group-item list-group-item-action">Estadisticas</a>
-                </div>
-                
-                <h2 class="px-0 mt-3">Buscar</h2>
+                <!-- Nueva Sección: Mini Formulario -->
+                <h2 class="  px-0">Registro de equipos</h2>
                 <div class="progress" style="height: 2px;">
                     <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;"></div>
                 </div>
-                <form class="d-flex mt-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-                    <button class="btn btn-danger" type="submit">Buscar</button>
+                <form class="p-3 rounded shadow-sm mt-3" style="background-color: #f8f9fa; border: 1px solid #dee2e6;">
+                    <div class="mb-3">
+                        <label for="teamName" class="form-label text-dark">Nombre del Equipo</label>
+                        <input type="text" class="form-control" id="teamName" placeholder="Ejemplo: Los Halcones">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sportType" class="form-label text-dark">Deporte</label>
+                        <select class="form-select" id="sportType">
+                            <option value="" selected>Selecciona el deporte</option>
+                            <option value="football">Fútbol</option>
+                            <option value="basketball">Baloncesto</option>
+                            <option value="volleyball">Voleibol</option>
+                            <option value="hockey">Hockey</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="teamCity" class="form-label text-dark">Ciudad</label>
+                        <input type="text" class="form-control" id="teamCity" placeholder="Ejemplo: Madrid">
+                    </div>
+                    <div class="mb-3">
+                        <label for="foundationYear" class="form-label text-dark">Año de Fundación</label>
+                        <input type="number" class="form-control" id="foundationYear" placeholder="Ejemplo: 1995"
+                            min="1900" max="2025">
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100">Guardar Equipo</button>
                 </form>
 
+                <!-- Botón para abrir la Modal -->
+                <div class="text-center mt-4">
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                        data-bs-target="#registerTeamModal">
+                        Registrar Nuevo Equipo
+                    </button>
+                </div>
+
+                <!-- Modal de Registro -->
+                <div class="modal fade" id="registerTeamModal" tabindex="-1" aria-labelledby="registerTeamModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-dark text-white">
+                                <h5 class="modal-title" id="registerTeamModalLabel">Registrar Nuevo Equipo</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="modalTeamName" class="form-label text-dark">Nombre del
+                                            Equipo</label>
+                                        <input type="text" class="form-control" id="modalTeamName"
+                                            placeholder="Ejemplo: Los Halcones">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modalSportType" class="form-label text-dark">Deporte</label>
+                                        <select class="form-select" id="modalSportType">
+                                            <option value="" selected>Selecciona el deporte</option>
+                                            <option value="football">Fútbol</option>
+                                            <option value="basketball">Baloncesto</option>
+                                            <option value="volleyball">Voleibol</option>
+                                            <option value="hockey">Hockey</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="teamLogo" class="form-label text-dark">Subir Logo</label>
+                                        <input type="file" class="form-control" id="teamLogo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modalTeamCity" class="form-label text-dark">Ciudad</label>
+                                        <input type="text" class="form-control" id="modalTeamCity"
+                                            placeholder="Ejemplo: Barcelona">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modalFoundationYear" class="form-label text-dark">Año de
+                                            Fundación</label>
+                                        <input type="number" class="form-control" id="modalFoundationYear"
+                                            placeholder="Ejemplo: 1980" min="1900" max="2025">
+                                    </div>
+                                    <button type="submit" class="btn btn-danger w-100">Registrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- Aside -->
+            <aside class="col-lg-3 mb-3">
+
+                <!-- Calendario -->
+                <h2 class="px-0">Calendario</h2>
+                <div class="progress mb-3" style="height: 2px;">
+                    <div class="progress-bar bg-danger px-0 " role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class=" d-flex justify-content-center">
+                    <input type="text" id="datepicker1" class="form-control d-none ">
+                </div>
+                
+                <!-- Enlaces -->
+                <div class="d-sm-none d-md-block">
+                    <h2 class="px-0 mt-4 ">Enlaces</h2>
+                    <div class="progress" style="height: 2px;">
+                        <div class="progress-bar bg-danger px-0" role="progressbar" style="width: 100%;"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="list-group mt-3 rounded-left px-0">
+                        <a href="#" class="list-group-item list-group-item-action">Clasificacion</a>
+                        <a href="#" class="list-group-item list-group-item-action">Resultados</a>
+                        <a href="#" class="list-group-item list-group-item-action">Calendario</a>
+                        <a href="#" class="list-group-item list-group-item-action">Estadisticas</a>
+                    </div>
+                </div>
+
+                <!-- Buscador -->
+                <div class="d-sm-none d-md-block">
+                    <h2 class="px-0 mt-3">Buscar</h2>
+                    <div class="progress" style="height: 2px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;"></div>
+                    </div>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                        <button class="btn btn-danger" type="submit">Buscar</button>
+                    </form>
+                </div>
+
                 <!-- Video Destacado -->
-                <h2 class="px-0 mt-3">Video destacado</h2>
+                <h2 class="px-0 mt-3">Multimedia</h2>
                 <div class="progress" style="height: 2px;">
                     <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;"></div>
                 </div>
                 <section class="bg-dark text-white py-3 mt-3 rounded">
-                    <div class="container text-center">
-                        <h2 class="mb-4">Video Destacado</h2>
+                    <div class="container text-center mb-3">
                         <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/EXAMPLE_VIDEO" title="YouTube video" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/EXAMPLE_VIDEO" title="YouTube video"
+                                allowfullscreen></iframe>
                         </div>
                     </div>
+                    <div>
+                        <li class="list-group-item d-flex align-items-center p-3">
+                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1523_e678f13e40.JPG&w=828&q=75 "
+                                alt="Imagen 1" class="rounded me-3 mini-imagen">
+                            <span>Título del Elemento 1</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center p-3">
+                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1523_e678f13e40.JPG&w=828&q=75 "
+                                alt="Imagen 2" class="rounded me-3 mini-imagen">
+                            <span>Título del Elemento 2</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center p-3">
+                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1523_e678f13e40.JPG&w=828&q=75 "
+                                alt="Imagen 3" class="rounded me-3 mini-imagen">
+                            <span>Título del Elemento 3</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center p-3">
+                            <img src="https://www.rffm.es/_next/image?url=https%3A%2F%2Frffm-cms.s3.eu-west-1.amazonaws.com%2FIMG_1523_e678f13e40.JPG&w=828&q=75 "
+                                alt="Imagen 4" class="rounded me-3 mini-imagen">
+                            <span>Título del Elemento 4</span>
+                        </li>
+                    </div>
                 </section>
+
+
             </aside>
         </div>
-
-        
 
         <!-- Botones Flotantes -->
         <div class="btn-toolbar position-fixed bottom-0 end-0 m-3 ">
             <div class="btn-group me-2">
-                <button  class="btn btn-outline-danger ">Cambiar Tema</button>
+                <button class="btn btn-outline-danger ">Cambiar Tema</button>
                 <a href="#" class="btn btn-outline-danger ">Volver a inicio</a>
 
             </div>
@@ -424,31 +715,39 @@
                     <div class="carousel-item active">
                         <blockquote class="blockquote text-center">
                             <p>"El mejor lugar para vivir la pasión del fútbol."</p>
-                            <footer class="blockquote-footer">Juan Pérez, <cite title="Source Title">Entrenador local</cite></footer>
+                            <footer class="blockquote-footer">Juan Pérez, <cite title="Source Title">Entrenador
+                                    local</cite></footer>
                         </blockquote>
                     </div>
                     <div class="carousel-item">
                         <blockquote class="blockquote text-center">
                             <p>"Un equipo comprometido con la comunidad."</p>
-                            <footer class="blockquote-footer">Ana Rodríguez, <cite title="Source Title">Aficionada</cite></footer>
+                            <footer class="blockquote-footer">Ana Rodríguez, <cite
+                                    title="Source Title">Aficionada</cite></footer>
                         </blockquote>
                     </div>
                     <div class="carousel-item">
                         <blockquote class="blockquote text-center">
                             <p>"Gran plataforma para conocer todas las noticias del deporte."</p>
-                            <footer class="blockquote-footer">Carlos Gómez, <cite title="Source Title">Periodista deportivo</cite></footer>
+                            <footer class="blockquote-footer">Carlos Gómez, <cite title="Source Title">Periodista
+                                    deportivo</cite></footer>
                         </blockquote>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
-                    <img src="menor-que.png" alt="Anterior" class="carousel-control-prev-icon slider" aria-hidden="true">
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel"
+                    data-bs-slide="prev">
+                    <img src="menor-que.png" alt="Anterior" class="carousel-control-prev-icon slider"
+                        aria-hidden="true">
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
-                    <img src="mayor-que.png" alt="Siguiente" class="carousel-control-next-icon slider" aria-hidden="true">
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel"
+                    data-bs-slide="next">
+                    <img src="mayor-que.png" alt="Siguiente" class="carousel-control-next-icon slider"
+                        aria-hidden="true">
                 </button>
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
         <div class="container text-center">
@@ -461,7 +760,24 @@
         </div>
     </footer>
 
+    <script>
+        
+        const fechasSeleccionadas = ["2025-01-31", "2025-01-30", "2025-02-07", "2025-02-06"];
+        $(document).ready(function () {
+            
+          $("#datepicker1").flatpickr({
+            inline: true,
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            defaultDate: fechasSeleccionadas,
+            locale: "es",
+            mode: "multiple"
+          });
+        });
+
+        require("flatpickr/dist/themes/material_red.css");
+      </script>
+
 </body>
+
 </html>
-
-
