@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Components</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.5;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px 0;
+    }
+
+    /* Global Styles */
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #222;
+      padding: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    /* Section Titles */
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #444;
+    }
+
+    /* Flexbox Components */
+    .section {
+      margin: 40px 0;
+      width: 100%;
+    }
+
+    /* Testimonial Carousel */
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      gap: 20px;
+      padding: 20px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      justify-content: center;
+    }
+
+    .carousel-item {
+      min-width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-item:hover {
+      transform: scale(1.05);
+    }
+
+    /* Interactive Image Gallery */
+    .gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery-item {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover span {
+      opacity: 1;
+    }
+
+    /* Pricing Cards */
+    .pricing {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .pricing-card {
+      flex: 1;
+      max-width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .pricing-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .pricing-card p {
+      margin-bottom: 15px;
+    }
+
+    .pricing-card button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .pricing-card button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Timeline (Revised) */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 3px;
+      height: 100%;
+      background-color: #007bff;
+    }
+
+    .timeline-item span {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #007bff;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-item p {
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* FAQ Section */
+    .faq {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .faq-item h4 {
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      display: none;
+      color: #666;
+    }
+
+    .faq-item.active p {
+      display: block;
+    }
+
+    /* Form Section */
+    .form-section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-section input, .form-section textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .form-section button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-section button:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#carousel">Testimonial</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header class="section">
+    <h1 class="title">Flexbox Components</h1>
+  </header>
+
+  <!-- Testimonial Carousel -->
+  <section id="carousel" class="section">
+    <h2 class="title">Testimonial Carousel</h2>
+    <div class="carousel">
+      <div class="carousel-item">Testimonial 1: Great service!</div>
+      <div class="carousel-item">Testimonial 2: Loved the experience!</div>
+      <div class="carousel-item">Testimonial 3: Highly recommend!</div>
+    </div>
+  </section>
+
+  <!-- Interactive Image Gallery -->
+  <section id="gallery" class="section">
+    <h2 class="title">Interactive Image Gallery</h2>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/200" alt="Gallery Item">
+        <span>Image 1</span>
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/200" alt="Gallery Item">
+        <span>Image 2</span>
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/200" alt="Gallery Item">
+        <span>Image 3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section id="pricing" class="section">
+    <h2 class="title">Pricing Cards</h2>
+    <div class="pricing">
+      <div class="pricing-card">
+        <h3>Basic</h3>
+        <p>$10/month</p>
+        <button>Choose Plan</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Premium</h3>
+        <p>$20/month</p>
+        <button>Choose Plan</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Pro</h3>
+        <p>$30/month</p>
+        <button>Choose Plan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="section">
+    <h2 class="title">Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span></span>
+        <p>Event 1: Started the project</p>
+      </div>
+      <div class="timeline-item">
+        <span></span>
+        <p>Event 2: Milestone reached</p>
+      </div>
+      <div class="timeline-item">
+        <span></span>
+        <p>Event 3: Project completed</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section">
+    <h2 class="title">FAQ</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h4>What is Flexbox?</h4>
+        <p>Flexbox is a CSS layout model for arranging elements in a flexible and responsive way.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How does it work?</h4>
+        <p>Flexbox works by defining a flex container and flex items. It provides alignment and space distribution capabilities.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Why use Flexbox?</h4>
+        <p>It simplifies complex layouts and ensures elements behave predictably across different screen sizes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="section form-section">
+    <h2 class="title">Contact Us</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div>
+        <h3>Company</h3>
+        <p>&copy; 2025 Flexbox Company. All rights reserved.</p>
+      </div>
+      <div>
+        <h3>Links</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
