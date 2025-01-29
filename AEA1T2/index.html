@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        .banner {
+            font-size: .8em;
+            background: linear-gradient(to top,  #663636 10%, #222  );
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            color: whitesmoke;
+        }
+
+        /* Header*/
+        .header {
+            padding: 140px 0 ;
+            text-align: center;
+            background: url("img/banner.JPG");
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1{
+            font-size: 4em;
+            text-shadow: 2px 2px 2px #663636;
+            margin-bottom: 30px;
+        }
+
+        .header p{
+            margin: 20px;
+            font-style: italic;
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: #222;
+           
+        }
+
+        /* Style the top navigation bar */
+        .navbar {
+            display: flex;
+        }
+
+        .iconos{
+            display: flex;
+            align-items: center;
+        }
+
+        .iconos input {
+            border: none;
+            border-radius: 10px;
+            padding: 5px;
+            height: 25px;
+
+        }
+
+
+        .iconos i {
+            color: white;
+            padding: 14px 20px;
+            font-size: 1.2em;
+        }
+
+        .iconos i:hover {
+            color: #663636;
+            padding: 14px 20px;
+            cursor: pointer;
+        }
+
+        
+        .navbar{
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            width: 100%;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .side {
+            flex: 20%;
+            background: linear-gradient(to top,  #663636 10%, #222  );
+            padding: 20px;
+        }
+
+        .side h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.2em;
+            padding: 10px;
+            color: #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .side ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            justify-content: flex-start;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .side ul li {
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .side ul a {
+            text-decoration: none;
+            color: #ddd;
+        }
+
+        .side ul li:hover {
+            background-color: #7c5252;
+            cursor: pointer;
+        }
+
+        /* Main column */
+        .main {
+            flex: 70%;
+            background-color: #f5f5f5;
+            padding: 25px;
+        }
+
+        .main section {
+            margin-bottom: 40px;
+        }
+
+        .main h2 {
+            font-size: 2em;
+            color: #663636;
+        }
+
+
+        .main form {
+            width: 60%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .main form input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .main form button {
+            padding: 10px;
+            background-color: #663636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .main form button:hover {
+            background-color: #7c5252;
+        }
+
+
+        .ofertas{
+            display: flex;
+            flex: column;
+        }
+
+        .titulo{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+
+        }
+
+        .linea{
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to top,  #663636 10%, #222  );;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-around;
+            background-color: #222;
+            color: white;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .footer-col {
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .social-icons {
+            font-size: 1.4em;
+            color: white;
+        }
+
+        .social-icons i:hover {
+            color: rgb(184, 150, 150);
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 850px) {
+
+            .row,
+            .navbar,
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav {
+                justify-content: center;
+            }
+            .navbar{
+                width: 100%;
+            }
+            .iconos {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Note -->
+    <div class="banner">
+        <p>tienda@gmail.com</p>
+        <p>+99 999 999 999</p>
+        <p>Envios gratis a España</p>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>La BOUTIQUE de ROSE</h1>
+        <p>Compra <b>al mejor precio</b> tus prendas.</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav">
+        <div class="navbar">
+            <a href="#">INICIO</a>
+            <a href="#">ACERCA DE</a>
+            <a href="#">TIENDA</a>
+            <a href="#">CONTACTO</a>
+        </div>
+        <div class="iconos">
+            <input type="text" name="" id="">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </nav>
+
+
+    <!-- The flexible grid (content) -->
+    <div class="row">
+        <div class="side">
+            <h3>Categorias</h3>
+            <ul>
+                <li><a href="#">Novedades</a></li>
+                <li><a href="#">Hombre</a></li>
+                <li><a href="#">Mujer</a></li>
+                <li><a href="#">Accesorios</a></li>
+                <li><a href="#">Ofertas</a></li>
+            </ul>
+        </div>
+        <div class="main"> 
+
+            <section class="categorias">
+
+            </section>
+            
+            <section class="ofertas">
+                <div class="titulo">
+                    <h2>OFERTAS</h2>
+                    <div class="linea">
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="nosotros">
+                <div class="titulo">
+                    <h2>SOBRE NOSOTROS</h2>
+                    <div class="linea">
+
+                    </div>
+                </div>
+            </section>
+
+
+            
+
+            <section class="newsletter">
+                <div class="titulo">
+                    <h2>NEWSLETTER</h2>
+                    <div class="linea">
+
+                    </div>
+                </div>                
+                <form action="#" method="post">
+                    <label for="email">Suscríbete a nuestra newsletter</label>
+                    <input type="email" id="email" name="email" placeholder="Introduce tu email" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-col">
+            <h4>Contacto</h4>
+            <p>123 Calle Moda, Barcelona</p>
+            <p>Teléfono: +999999999</p>
+            <p>Email: tienda@gmail.com</p>
+        </div>
+        <div class="footer-col">
+            <h4>Sigenos</h4>
+            <div class="social-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-tiktok"></i>
+
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Legales</h4>
+            <p>Términos y Condiciones</p>
+            <p>Política de Privacidad</p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
