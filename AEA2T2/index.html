@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEA2 - Adrián</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .superior i:hover {
+            color: #9B9284;
+            cursor: pointer;
+        }
+
+        .navbar-brand img {
+            max-height: 170px;
+        }
+
+        .navbar {
+            background-color: #9B9284 !important;
+        }
+
+        .navbar a:hover {
+            color: whitesmoke !important;
+        }
+
+        .dropdown-menu a:hover {
+            color: black !important;
+        }
+
+        .slider {
+            width: 50px;
+            height: 50px;
+        }
+
+        .carousel-item img {
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .ubicacion {
+            background-color: #9B9284;
+        }
+
+        .news-card {
+            margin-bottom: 30px;
+        }
+
+        .news-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .news-card h5 {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .news-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .progress-bar {
+            background-color: #9B9284;
+        }
+
+        .mini-imagen {
+            width: 50px;
+            height: 50px;
+        }
+
+        .multimedia {
+            background-color: #9B9284;
+        }
+
+        .flatpickr-day.selected {
+            background-color: #9B9284;
+            color: white;
+            border: none;
+        }
+
+        .flatpickr-day.selected:hover {
+            background-color: #9B9284;
+            color: white;
+            border: none;
+        }
+
+        .flatpickr-header {
+            background-color: #9B9284;
+        }
+
+        .multimedia li:hover {
+            cursor: pointer;
+            background-color: #80796e;
+        }
+
+        .contendor-productos {
+            display: flex;
+            flex-wrap: wrap;
+
+            padding: 0;
+        }
+
+        .producto {
+            flex: 1 1 calc(20%);
+            max-width: 20%;
+        }
+
+        .producto-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .producto-img img {
+            transition: transform 0.5 ease;
+            width: 100%;
+            height: auto;
+        }
+
+        .producto-img:hover img {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #9B9284;
+        }
+
+        footer img {
+            width: 150px;
+            height: 150px;
+        }
+
+        footer i {
+            font-size: 2rem;
+        }
+
+        .footer-inf {
+            background-color: #80796e;
+        }
+
+        .acordeon {
+            background-color: #9B9284 !important;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .image-zoom {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .image-container:hover .image-zoom {
+            transform: scale(1.1);
+            filter: brightness(50%) sepia(100%) hue-rotate(-50deg) saturate(300%);
+        }
+
+        .overlay {
+            opacity: 0;
+            background-color: #9e9a93e0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        .imagen-nosotros img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .testimonios {
+            background-color: #80796e;
+        }
+
+        .contenido-testimonio img {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+
+        }
+
+        .testimonios .nombre {
+            font-weight: bold;
+        }
+
+        .testimonios .opinion {
+            font-style: italic;
+        }
+
+        .modal-header {
+            background-color: #80796e;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-dark text-light d-flex justify-content-between p-1 align-items-center superior">
+        <div class="d-flex align-items-center p-2 gap-3 ms-3">
+            <i class="fa-solid fa-phone fa-lg"></i>
+            <div>+999 999 999</div>
+        </div>
+        <div class="d-flex me-3">
+            <div class="d-flex align-items-center px-2 gap-3 me-4">
+                <input type="text" placeholder="Búsqueda rápida" class="form-control form-control-sm ">
+                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            </div>
+            <div class="d-flex align-items-center p-2 gap-3">
+                <div><a href="#" class="link text-decoration-none text-light">Mi área</a></div>
+                <i class="fa-solid fa-user fa-lg "></i>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light px-5 col-12">
+        <a class="navbar-brand " href="#">
+            <img src="img/logo.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon "></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item m-2 "><a class="nav-link active text-dark fs-4" href="#">INICIO</a></li>
+                <li class="nav-item m-2 dropdown">
+                    <a class="nav-link dropdown-toggle text-dark fs-4" href="#" id="noticiasDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"" href=" #">NOTICIAS</a>
+                    <ul class="dropdown-menu" aria-labelledby="noticiasDropdown">
+                        <li><a class="dropdown-item text-dark" href="#">Últimas Noticias</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">Conferencias</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">Foro de noticias</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item m-2 dropdown">
+                    <a class="nav-link dropdown-toggle text-dark fs-4" href="#" id="noticiasDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"" href=" #">NUESTRAS ACCIONES</a>
+                    <ul class="dropdown-menu" aria-labelledby="noticiasDropdown">
+                        <li><a class="dropdown-item text-dark" href="#">Voluntariado</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">Donaciones</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">Charlas</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item m-2"><button class="btn btn-danger fs-4">¡Hazte SOCIO!</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Carrusel -->
+    <div id="mainCarousel" class="carousel slide " data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://www.msf.es/sites/default/files/styles/hero_big_desktop/public/MSB220302.webp?h=5bc57461&itok=YeIZCU3t"
+                    class="d-block w-100" alt="Noticia 1">
+                <div class="carousel-caption ">
+                    <div class="w-50 mx-auto">
+                        <div class="d-flex p-2 align-items-center ubicacion">
+                            <i class="fa-solid fa-location-crosshairs me-3"></i>
+                            <div>Nueva Guinea</div>
+                        </div>
+                        <div class="bg-light text-dark fs-1 p-1">Nuevo paquete de ayudas en marcha</div>
+                        <div class="my-4"><button class="btn btn-danger">Más información</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.msf.es/sites/default/files/styles/hero_big_desktop/public/MSB216552.webp?h=6e601ee7&itok=W9U_SE_R "
+                    class="d-block w-100 " alt="Noticia 2">
+                <div class="carousel-caption ">
+                    <div class="w-50 mx-auto">
+                        <div class="d-flex p-2 align-items-center ubicacion">
+                            <i class="fa-solid fa-location-crosshairs me-3"></i>
+                            <div>Ucrania</div>
+                        </div>
+                        <div class="bg-light text-dark fs-1 p-1">Continuan los ataques</div>
+                        <div class="my-4"><button class="btn btn-danger">Más información</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.msf.es/sites/default/files/styles/hero_big_desktop/public/2022-11/Avion-MSF225613%28High%29-rt2.webp?h=1f3476d5&itok=qs-UTPIe"
+                    class="d-block w-100 " alt="Noticia 2">
+                <div class="carousel-caption ">
+                    <div class="w-50 mx-auto">
+                        <div class="d-flex p-2 align-items-center ubicacion">
+                            <i class="fa-solid fa-location-crosshairs me-3"></i>
+                            <div>Tanzania</div>
+                        </div>
+                        <div class="bg-light text-dark fs-1 p-1">Expedición voluntaria a Tanzania</div>
+                        <div class="my-4"><button class="btn btn-danger">Más información</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <img src="img/menor-que.png" alt="Anterior" class="carousel-control-prev-icon slider" aria-hidden="true">
+
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <img src="img/mayor-que.png" alt="Siguiente" class="carousel-control-next-icon slider" aria-hidden="true">
+        </button>
+    </div>
+
+    <!--Seccion principal-->
+    <div class="container mt-5">
+        <div class="row">
+
+            <!--MAIN-->
+            <div class="col-lg-9  mb-5">
+                <!--Noticias-->
+                <h2 class="px-0 fs-1">Noticias</h2>
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar  p-2" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="row p-2 mt-3">
+                    <div class="col-md-4 mb-3">
+                        <div class="card news-card border border-2 shadow-lg">
+                            <img src="https://www.msf.es/sites/default/files/styles/thumbnail_list/public/MSB220755.jpg?h=18c3af27&itok=ssiX9SJ_"
+                                class="card-img-top" alt="Noticia 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Falta de recursos en Gaza</h5>
+                                <p class="card-text">Ante la escasez de muletas, nuestros fisioterapeutas improvisaron
+                                    un diseño nuevo y esperanzador</p>
+                                <a href="#" class="btn btn-outline-danger ">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card news-card border border-2 shadow-lg">
+                            <img src="https://www.msf.es/sites/default/files/styles/thumbnail_list/public/MSB206706.jpg?h=f7d9296c&itok=nDKXCau6"
+                                class="card-img-top" alt="Noticia 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Opresión en Cisjordania</h5>
+                                <p class="card-text">Cisjordania sufre desde hace más de un año opresión y violencia
+                                    física por parte de las fuerzas israelís</p>
+                                <a href="#" class="btn btn-outline-danger ">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card news-card border border-2 shadow-lg">
+                            <img src="https://www.msf.es/sites/default/files/styles/thumbnail_list/public/MSB221290.jpg?h=92d0e645&itok=PBZ_xMeQ"
+                                class="card-img-top" alt="Noticia 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Fuertes ataques en Sudán</h5>
+                                <p class="card-text">En los últimos días, nuestros equipos han atendido a una gran
+                                    cantidad de pacientes heridos de guerra </p>
+                                <a href="#" class="btn btn-outline-danger ">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Productos-->
+                <h2 class="px-0 mt-3 fs-1">Productos solidarios</h2>
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar  p-2" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+                <div class="row mt-3 px-3">
+                    <div class="contendor-productos ">
+
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img
+                                    src="https://tienda.msf.es/761-home_default/bolsa-mujer-tenia-que-ser-con-lola-vendetta.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img
+                                    src="https://tienda.msf.es/1079-home_default/camiseta-mlarga-entallada-mujer-tenia-que-ser.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img src="https://tienda.msf.es/357-home_default/bidon-sos.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img src="https://tienda.msf.es/590-home_default/lapiz.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img src="https://tienda.msf.es/763-home_default/portamovil-sos.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img src="https://tienda.msf.es/641-home_default/portasnacks-reciclado.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img
+                                    src="https://tienda.msf.es/836-home_default/alfombrilla-de-raton-buscar-refugio.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img src="https://tienda.msf.es/569-home_default/tres-ninos-sin-fronteras.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img src="https://tienda.msf.es/677-home_default/sudadera-unisex-vuelta-al-mundo.jpg">
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-img">
+                                <img
+                                    src="https://tienda.msf.es/1008-home_default/camiseta-mlarga-unisex-vuelta-al-mundo-roja.jpg">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex p-2 align-items-center ubicacion  ">
+                        <div>Tienda solidaria</div>
+                    </div>
+                    <div class="bg-light text-dark fs-2 p-1">Colabora comprando tus productos favoritos</div>
+                    <div class="my-4"><button class="btn btn-danger">Comprar</button></div>
+                </div>
+
+                <!--Conocenos-->
+                <h2 class="px-0 mt-3 fs-1">Conocenos</h2>
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar  p-2" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+
+                <div class="accordion mt-3 px-2 pb-4" id="infoAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button active text-light acordeon" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                ¿Quienes somos?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 text-center mb-4">
+                                            <p class="lead">Conoce más sobre nuestra misión, visión y el equipo que hace
+                                                posible todo estos</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-4 imagen-nosotros">
+                                            <img
+                                                src="https://www.msf.es/sites/default/files/styles/map_image/public/MSB145167.jpg?h=bf654dbc&itok=SzOntGSV">
+                                        </div>
+                                        <div class="col-lg-6 mb-4">
+                                            <h3>Nuestra misión</h3>
+                                            <p>Somos na organización comprometida con el bienestar social y el
+                                                desarrollo comunitario.
+                                                Trabajamos para mejorar la calidad de vida de las personas a traves de
+                                                proyectos solidario,
+                                                donaciones y actividadaes que fomenten el apoyo mutuo.
+                                            </p>
+                                            <h3>Nuestra visión</h3>
+                                            <p>Aspiramos a ser una ONG referente en el sector, creando redes de apoyo y
+                                                colaboración a nievel
+                                                global para hacer frente a las problemátias sociales.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <h3 class="mb-4">Nuestro equipo</h3>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPoNFtAK1FhSzQw4ssFLEHzdLX0mbyx1zdrg&s"
+                                                    class="card-img-top">
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title">Juan Pérez</h5>
+                                                    <p class="card-text">Más de 10 años de experiencia en proyectos
+                                                        sociales</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKUI1Hc30O_lMm_pPAQ0dtd729jseWAuWlTw&s"
+                                                    class="card-img-top">
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title">María López</h5>
+                                                    <p class="card-text">Colaboradora en orgnanizacione sociales desde
+                                                        los 15 años</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card">
+                                                <img src="https://media.nngroup.com/media/people/photos/2022-portrait-page-3.jpg.256x256_q75_autocrop_crop-smart_upscale.jpg"
+                                                    class="card-img-top">
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title">Luis Álvarez</h5>
+                                                    <p class="card-text">Activista premiado por los derechos humanos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item ">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed  text-light acordeon" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                Nuestra actividad
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <div class="accordion-body">
+                                    <div class="row text-center">
+                                        <div class="col-md-6 mb-4">
+                                            <h2>Dinero recaudado</h2>
+                                            <canvas id="barChart"></canvas>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <h2>Dinero recaudado</h2>
+                                            <canvas id="lineChart"></canvas>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed  text-light acordeon" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                Oficinas
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <div class="accordion-body">
+                                    <div class="container mt-3">
+                                        <div class="row g-3">
+                                            <!-- Imagen 1 -->
+                                            <div class="col-md-4">
+                                                <div class="image-container position-relative overflow-hidden">
+                                                    <img src="https://www.msf.es/sites/default/files/styles/map_image/public/MSB119168.jpg?h=df4c05df&itok=bzIkXSUQ"
+                                                        alt="Selección 1" class="img-fluid image-zoom">
+                                                    <div
+                                                        class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white fw-bold">
+                                                        Madrid
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Imagen 2 -->
+                                            <div class="col-md-4">
+                                                <div class="image-container position-relative overflow-hidden">
+                                                    <img src="https://www.msf.es/sites/default/files/styles/map_image/public/MSB121574.jpg?h=b330ec15&itok=3ySLBqxq"
+                                                        alt="Selección 2" class="img-fluid image-zoom">
+                                                    <div
+                                                        class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white fw-bold">
+                                                        Barcelona
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Imagen 3 -->
+                                            <div class="col-md-4">
+                                                <div class="image-container position-relative overflow-hidden">
+                                                    <img src="https://www.msf.es/sites/default/files/styles/map_image/public/MSB143702.jpg?h=c2504a07&itok=XNpcMFDa"
+                                                        alt="Selección 3" class="img-fluid image-zoom">
+                                                    <div
+                                                        class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white fw-bold">
+                                                        Valencia
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Contacto-->
+                <h2 class="px-0 mt-3 fs-1">Contacta con nosotros</h2>
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar  p-2" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+                <form class="p-3 rounded shadow-sm mt-3" style="background-color: #f8f9fa; border: 1px solid #dee2e6;">
+                    <div class="mb-3">
+                        <label for="teamName" class="form-label text-dark">Nombre completo</label>
+                        <input type="text" class="form-control" id="teamName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sportType" class="form-label text-dark">Motivo</label>
+                        <select class="form-select" id="sportType">
+                            <option value="" selected>Selecciona el motivo</option>
+                            <option value="football">Apuntarse al Voluntariado</option>
+                            <option value="basketball">Donar</option>
+                            <option value="volleyball">Dudas</option>
+                            <option value="hockey">Sugerencias</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="teamCity" class="form-label text-dark">Ciudad</label>
+                        <input type="text" class="form-control" id="teamCity">
+                    </div>
+                    <div class="mb-3">
+                        <label for="foundationYear" class="form-label text-dark">Edad</label>
+                        <input type="number" class="form-control" id="foundationYear" "
+                            min=" 1900" max="2025">
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Enviar</button>
+                </form>
+
+            </div>
+
+            <div class="col-lg-3 mb-3">
+                <!--Calendario-->
+                <h2 class="px-0 fs-1">Voluntariado</h2>
+                <div class="progress mb-3" style="height: 2px;">
+                    <div class="progress-bar  px-0 " role="progressbar" style="width: 100%;" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class=" d-flex justify-content-center">
+                    <input type="text" id="datepicker1" class="form-control d-none ">
+                </div>
+
+                <!--Multimedia-->
+                <h2 class="px-0 mt-5 fs-1">Multimedia</h2>
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar " role="progressbar" style="width: 100%;"></div>
+                </div>
+                <section class=" text-white py-3 mt-3 rounded multimedia">
+                    <div class="container text-center mb-3">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/EXAMPLE_VIDEO" title="YouTube video"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <li class="list-group-item d-flex align-items-center p-3">
+                            <img src="https://www.msf.es/sites/default/files/styles/wide_card_desktop/public/2024-06/nsl_banner_web.webp?h=b01c5cf6&itok=o-iOhgst"
+                                alt="Imagen 1" class="rounded me-3 mini-imagen">
+                            <span>Nuestra línea roja</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center p-3">
+                            <img src="https://www.msf.es/sites/default/files/styles/wide_card_desktop/public/MSB186858.webp?h=d682ffff&itok=nM5Lx-c0"
+                                alt="Imagen 2" class="rounded me-3 mini-imagen">
+                            <span>Comienza con este sobre</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center p-3">
+                            <img src="https://www.msf.es/sites/default/files/styles/wide_card_desktop/public/2024-09/MSF152196_Ana%20Lemos%20MSF.webp?h=ddfaa4c6&itok=DW1N9vU6 "
+                                alt="Imagen 3" class="rounded me-3 mini-imagen">
+                            <span>Testamento solidario</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center p-3">
+                            <img src="https://www.msf.es/sites/default/files/styles/wide_card_desktop/public/2024-04/MSF-Gaza-NoConMiSilencio-600x400px-AF.webp?h=6377f7ce&itok=OXq6uXOI"
+                                alt="Imagen 4" class="rounded me-3 mini-imagen">
+                            <span>#NoConMiSilencio</span>
+                        </li>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonios -->
+    <section class=" py-5 mt-5  testimonios">
+        <div class="container">
+            <h2 class="text-center mb-5 text-light fs-1">Testimonios</h2>
+            <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-column justify-content-center text-center contenido-testimonio">
+                            <img src="img/persona1.png">
+                            <p class="nombre mt-4">Lucio Ramírez</p>
+                            <p class="opinion">Uno de los mejores voluntariados que he hecho</p>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex flex-column justify-content-center text-center contenido-testimonio">
+                            <img src="img/persona2.png">
+                            <p class="nombre mt-4">Rosa Aliaga</p>
+                            <p class="opinion">Sin lugar a dudas un buen lugar al que donar para ayudar</p>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex flex-column justify-content-center text-center contenido-testimonio">
+                            <img src="img/persona3.png">
+                            <p class="nombre mt-4">Benito Carpintero</p>
+                            <p class="opinion">Tuve la ocasión de colaborar con ellos y se nota que son gente
+                                comprometida</p>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel"
+                    data-bs-slide="prev">
+                    <img src="img/menor-que.png" alt="Anterior" class="carousel-control-prev-icon slider"
+                        aria-hidden="true">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel"
+                    data-bs-slide="next">
+                    <img src="img/mayor-que.png" alt="Siguiente" class="carousel-control-next-icon slider"
+                        aria-hidden="true">
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Botones Flotantes -->
+    <div class="btn-toolbar position-fixed bottom-0 end-0 m-4 " data-bs-toggle="modal"
+        data-bs-target="#donationModal">
+        <button class="btn btn-danger p-3" id="cambiarTema"> <i class="fa-solid fa-circle-exclamation me-2"></i>
+            DONAR</button>
+
+    </div>
+
+    <!--Modal de donaciones-->
+    <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationModalLabel">Hacer una donación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="donationForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Cantidad a donar (€)</label>
+                            <input type="number" class="form-control" id="cantidad" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Añade un mensaje (opcional)</label>
+                            <textarea class="form-control" rows="3" id="mensaje"></textarea>
+                        </div>
+                        <div class="mb-3 d-flex flex-column gap-2">
+                            <button type="submit" class="btn btn-dark">Confirmar donación</button>
+                            <button class="btn btn-outline-danger " data-bs-dismiss="modal" aria-label="Close">Cancelar
+                                donación</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="py-4">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4 d-flex flex-column align-items-center mb-3">
+                    <img src="img/logo.png">
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-light"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-light"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="mb-4">Enlaces relevantes</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-4">
+                        <li><a href="#" class="text-light">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-light">Proyectos</a></li>
+                        <li><a href="#" class="text-light">Noticias</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="mb-4">Contacto</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-4">
+                        <li><a href="#" class="text-light">borcelle@gmail.com</a></li>
+                        <li><a href="#" class="text-light">+999 999 999</a></li>
+                        <li><a href="#" class="text-light">Calle Solidaria n4, Madrid, España</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+
+        const fechasSeleccionadas = ["2025-02-31", "2025-02-30",];
+        $(document).ready(function () {
+
+            $("#datepicker1").flatpickr({
+                inline: true,
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                defaultDate: fechasSeleccionadas,
+                locale: "es",
+                mode: "multiple"
+            });
+        });
+
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                datasets: [{
+                    label: 'Dinero recibido (€)',
+                    data: [100, 200, 300, 400, 200, 600],
+                    backgroundColor: '#9B9284',
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        })
+
+        var ctx2 = document.getElementById('lineChart').getContext('2d');
+        var barChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                datasets: [{
+                    label: 'Número de donantes',
+                    data: [50, 17, 38, 49, 67, 47],
+                    backgroundColor: '#9B9284',
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
